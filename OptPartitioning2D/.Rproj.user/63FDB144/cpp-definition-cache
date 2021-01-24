@@ -1,0 +1,164 @@
+[
+    {
+        "file": "E:/LaMME STAGE/OptPartitioning2D/src/Cost2D.cpp",
+        "file_last_write": 1611502973.0,
+        "definitions": [
+            {
+                "usr": "c:@S@Cost2D@F@Cost_tT#&i#S0_#*d#S1_#",
+                "kind": 7,
+                "parent_name": "Cost2D",
+                "name": "Cost_tT(unsigned int &, unsigned int &, double *, double *)",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/Cost2D.cpp",
+                "line": 7,
+                "column": 16
+            }
+        ]
+    },
+    {
+        "file": "E:/LaMME STAGE/OptPartitioning2D/src/Cost2D.h",
+        "file_last_write": 1611502973.0,
+        "definitions": [
+            {
+                "usr": "c:@S@Cost2D",
+                "kind": 2,
+                "parent_name": "",
+                "name": "Cost2D",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/Cost2D.h",
+                "line": 6,
+                "column": 7
+            }
+        ]
+    },
+    {
+        "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+        "file_last_write": 1611504064.0,
+        "definitions": [
+            {
+                "usr": "c:@S@OptPart2D@F@getChangepoints#1",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "getChangepoints",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 55,
+                "column": 40
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@getMeans1#1",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "getMeans1",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 56,
+                "column": 34
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@getMeans2#1",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "getMeans2",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 57,
+                "column": 34
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@getGlobalCost#1",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "getGlobalCost",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 58,
+                "column": 19
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@getN#1",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "getN",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 59,
+                "column": 25
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@vectSum#&$@N@std@N@__1@S@vector>#d#$@N@std@N@__1@S@allocator>#d#S0_#1",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "vectSum(std::vector<double> &, std::vector<double> &)",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 61,
+                "column": 21
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@algoOptPart#&$@N@std@N@__1@S@vector>#d#$@N@std@N@__1@S@allocator>#d#S0_#",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "algoOptPart(std::vector<double> &, std::vector<double> &)",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 76,
+                "column": 17
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@algoPELT#&$@N@std@N@__1@S@vector>#d#$@N@std@N@__1@S@allocator>#d#S0_#",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "algoPELT(std::vector<double> &, std::vector<double> &)",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 104,
+                "column": 17
+            },
+            {
+                "usr": "c:@S@OptPart2D@F@backtracking#i#",
+                "kind": 7,
+                "parent_name": "OptPart2D",
+                "name": "backtracking(unsigned int)",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.cpp",
+                "line": 149,
+                "column": 17
+            }
+        ]
+    },
+    {
+        "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.h",
+        "file_last_write": 1611504116.0,
+        "definitions": [
+            {
+                "usr": "c:@S@OptPart2D",
+                "kind": 2,
+                "parent_name": "",
+                "name": "OptPart2D",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPart2D.h",
+                "line": 13,
+                "column": 7
+            }
+        ]
+    },
+    {
+        "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPartitioning2D.cpp",
+        "file_last_write": 1611503540.0,
+        "definitions": [
+            {
+                "usr": "c:@F@TransferOptPatr2D#$@N@std@N@__1@S@vector>#d#$@N@std@N@__1@S@allocator>#d#S0_#d#$@N@std@N@__1@S@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@S@allocator>#C#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "TransferOptPatr2D(std::vector<double>, std::vector<double>, double, std::string)",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/OptPartitioning2D.cpp",
+                "line": 10,
+                "column": 6
+            }
+        ]
+    },
+    {
+        "file": "E:/LaMME STAGE/OptPartitioning2D/src/Optpart2D.h",
+        "file_last_write": 1611503091.0,
+        "definitions": [
+            {
+                "usr": "c:@S@OptPart2D",
+                "kind": 2,
+                "parent_name": "",
+                "name": "OptPart2D",
+                "file": "E:/LaMME STAGE/OptPartitioning2D/src/Optpart2D.h",
+                "line": 13,
+                "column": 7
+            }
+        ]
+    }
+]
