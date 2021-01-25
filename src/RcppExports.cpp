@@ -5,9 +5,9 @@
 
 using namespace Rcpp;
 
-// OptPatr2D
-List OptPatr2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type);
-RcppExport SEXP _OptPartitioning2D_OptPatr2D(SEXP data1SEXP, SEXP data2SEXP, SEXP penaltySEXP, SEXP typeSEXP) {
+// OptPart2D
+List OptPart2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type);
+RcppExport SEXP _OptPartitioning2D_OptPart2D(SEXP data1SEXP, SEXP data2SEXP, SEXP penaltySEXP, SEXP typeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -15,13 +15,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< std::vector<double> >::type data2(data2SEXP);
     Rcpp::traits::input_parameter< double >::type penalty(penaltySEXP);
     Rcpp::traits::input_parameter< std::string >::type type(typeSEXP);
-    rcpp_result_gen = Rcpp::wrap(OptPatr2D(data1, data2, penalty, type));
+    rcpp_result_gen = Rcpp::wrap(OptPart2D(data1, data2, penalty, type));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_OptPartitioning2D_OptPatr2D", (DL_FUNC) &_OptPartitioning2D_OptPatr2D, 4},
+    {"_OptPartitioning2D_OptPart2D", (DL_FUNC) &_OptPartitioning2D_OptPart2D, 4},
     {NULL, NULL, 0}
 };
 

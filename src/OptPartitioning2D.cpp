@@ -1,4 +1,7 @@
+#include<Rcpp.h>
+// Enable C++11 via this plugin (Rcpp 0.10.3 or later)
 // [[Rcpp::plugins(cpp11)]]
+
 #include<math.h>
 #include "Cost2D.h"
 #include "OP2D.h"
@@ -29,7 +32,7 @@ using namespace std;
 //' OptPatr2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "pruning")
 
 // [[Rcpp::export]]
-List OptPatr2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type) {
+List OptPart2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type) {
   if(data1.size() != data2.size()){throw std::range_error("data1 and data2 have different length");}
   
   if(penalty <= 0) {throw std::range_error("Penalty should be a positive number");}
@@ -45,9 +48,9 @@ List OptPatr2D(std::vector<double> data1, std::vector<double> data2, double pena
   Y.backtracking(Y.getN());
   
   List res = List::create( _["changepoints"] = Y.getChangepoints(),
-                                      _["means1"] = Y.getMeans1(),
-                                      _["means2"] = Y.getMeans2(),
-                                      _["globalCost"] = Y.getGlobalCost() ) ;
+                           _["means1"] = Y.getMeans1(),
+                           _["means2"] = Y.getMeans2(),
+                           _["globalCost"] = Y.getGlobalCost() ) ;
   
   return res ;
 }
