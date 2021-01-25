@@ -1,4 +1,4 @@
-Simple test :
+#Simple test :
 
 devtools::install_github("lpishchagina/OptPartitioning2D")
 library(OptPartitioning2D)

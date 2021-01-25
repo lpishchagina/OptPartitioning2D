@@ -1,4 +1,4 @@
-#Verification of the OptPartitioning and PELT algorithms using the simplest examples
+#Verification of the Optimal Partitioning and PELT algorithms. The simplest examples.
 
 devtools::install_github("lpishchagina/OptPartitioning2D")
 library(OptPartitioning2D)
