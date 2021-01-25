@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // OptPatr2D
 List OptPatr2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type);
-RcppExport SEXP _OptPartitioning2D_OptPatr2D(SEXP data1SEXP, SEXP data2SEXP, SEXP penaltySEXP, SEXP typeSEXP) {
+RcppExport SEXP _OptPartitioning2D_TransferOptPatr2D(SEXP data1SEXP, SEXP data2SEXP, SEXP penaltySEXP, SEXP typeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;

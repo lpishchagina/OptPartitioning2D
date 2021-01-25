@@ -1,11 +1,11 @@
 #include "Cost2D.h"
-#include "OptPart2D.h"
+#include "OP2D.h"
 
 #include<iostream>
 #include <stdlib.h>
 
 //constructor------------------------------------------------------------------//
-OptPart2D::OptPart2D(std::vector< double >& data1, std::vector< double >& data2,double beta)
+OP2D::OP2D(std::vector< double >& data1, std::vector< double >& data2,double beta)
 {
   penalty = beta;
   ndata = data1.size();
@@ -33,7 +33,7 @@ OptPart2D::OptPart2D(std::vector< double >& data1, std::vector< double >& data2,
   lastChangepoints[1] = 0;
 }
 //destructor-------------------------------------------------------------------//
-OptPart2D::~OptPart2D()
+OP2D::~OP2D()
 {
   delete []vectData1;
   vectData1 = NULL;
@@ -52,13 +52,13 @@ OptPart2D::~OptPart2D()
   vectK = NULL;
 }
 //accessors--------------------------------------------------------------------//
-std::vector< unsigned int > OptPart2D::getChangepoints() const { return(changepoints); }
-std::vector< double > OptPart2D::getMeans1() const { return(means1); }
-std::vector< double > OptPart2D::getMeans2() const { return(means2); }
-double OptPart2D::getGlobalCost() const { return(globalCost); }
-unsigned int OptPart2D::getN() const  { return(ndata); }
+std::vector< unsigned int > OP2D::getChangepoints() const { return(changepoints); }
+std::vector< double > OP2D::getMeans1() const { return(means1); }
+std::vector< double > OP2D::getMeans2() const { return(means2); }
+double OP2D::getGlobalCost() const { return(globalCost); }
+unsigned int OP2D::getN() const  { return(ndata); }
 //vectSum----------------------------------------------------------------------//
-double** OptPart2D::vectSum(std::vector< double >& data1, std::vector< double >& data2) const
+double** OP2D::vectSum(std::vector< double >& data1, std::vector< double >& data2) const
 {
   unsigned int n = data1.size();
   vectK[0][0] = 0;
@@ -73,7 +73,7 @@ double** OptPart2D::vectSum(std::vector< double >& data1, std::vector< double >&
   return(vectK);
 }
 //OptPart----------------------------------------------------------------------//
-void OptPart2D::algoOptPart(std::vector< double >& data1,std::vector< double >& data2)
+void OP2D::algoOptPart(std::vector< double >& data1,std::vector< double >& data2)
 {
   unsigned int n = data1.size();
   Cost2D Cost;
@@ -101,7 +101,7 @@ void OptPart2D::algoOptPart(std::vector< double >& data1,std::vector< double >& 
   }  
 }
 //PELT-------------------------------------------------------------------------//
-void OptPart2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
+void OP2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
 {
   
   unsigned int n = data1.size();
@@ -146,7 +146,7 @@ void OptPart2D::algoPELT(std::vector< double >& data1,std::vector< double >& dat
 }
 //backtracking-----------------------------------------------------------------//
 //a vector of change points and a vector of mean values
-void OptPart2D::backtracking(unsigned int n)
+void OP2D::backtracking(unsigned int n)
 {
   globalCost = Q[n];
   unsigned int ChangepointTemp = n;

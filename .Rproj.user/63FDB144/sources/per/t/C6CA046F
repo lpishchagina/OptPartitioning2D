@@ -1,0 +1,26 @@
+{
+    "id": "C6CA046F",
+    "path": "E:/LaMME STAGE/OptPartitioning2D/src/RcppExports.cpp",
+    "project_path": "src/RcppExports.cpp",
+    "type": "cpp",
+    "hash": "2651749360",
+    "contents": "",
+    "dirty": false,
+    "created": 1611569741527.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "6,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1611585430,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1611585430029,
+    "read_only": true,
+    "read_only_alternatives": []
+}

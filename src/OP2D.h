@@ -1,5 +1,5 @@
-#ifndef OPTPART2D_H
-#define OPTPART2D_H
+#ifndef OP2D_H
+#define OP2D_H
 
 #include"Cost2D.h"
 
@@ -10,11 +10,11 @@
 
 #include "Rcpp.h"
 
-class OptPart2D
+class OP2D
 {
 public:
-  OptPart2D(std::vector< double >& data1, std::vector< double >& data2, double beta);
-  ~OptPart2D();
+  OP2D(std::vector< double >& data1, std::vector< double >& data2, double beta);
+  ~OP2D();
   
   std::vector< unsigned int > getChangepoints() const;
   std::vector< double > getMeans1() const;
@@ -44,4 +44,4 @@ private:
   double globalCost;
 };
 
-#endif // OPTPART2D_H
+#endif // OP2D_H
