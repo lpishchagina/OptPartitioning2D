@@ -79,7 +79,7 @@ OptPatr2D <- function(data1, data2, penalty = 0, type = "null")
   
   #---CALL Rcpp function---#
   res <- TransferOptPatr2D( data1, data2, penalty, type) 
-  response <- list(changepoints = res$changepoints, means1 = res$means1, Means2 = res$means2, globalCost = res$globalCost)
+  response <- list(changepoints = res$changepoints, means1 = res$means1, means2 = res$means2, globalCost = res$globalCost)
   return(response)
 }
 
