@@ -1,3 +1,4 @@
+
 #' @title GenData2D
 #'  
 #' @description Generation of data of dimension 2 with a given values of means and changepoints
@@ -13,6 +14,9 @@
 #'  
 #' @exemples
 #' GenData2D <- function (n, changepoints, means1, means2, noise1 = 1, noise2 = 1)
+
+ 
+GenData2D <- function(n, changepoints, means1, means2, noise1 = 1, noise2 = 1)
 {
   #---stop---#
   if (n!= changepoints[length(changepoints)]) {stop('last element of changepoints is always n')}
