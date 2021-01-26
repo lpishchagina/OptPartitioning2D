@@ -22,7 +22,7 @@ T5_mu2
 T5_sigma <- 1
 T5_penalty <- 2 * T5_sigma * log(T5_n)
 
-T5_data <- GenData2D(T5_chp, T5_mu1, T5_mu2, T5_sigma, T5_sigma)
+T5_data <- GenData2D(T5_n, T5_chp, T5_mu1, T5_mu2, T5_sigma, T5_sigma)
 
 T5_timeOptPart <- OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "null",func = "OptPart2D")
 T5_timePELT <- OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "pruning",func = "OptPart2D")
@@ -55,7 +55,7 @@ T7_mu2
 T7_sigma <- 1
 T7_penalty <- 2 * T7_sigma * log(T7_n)
 
-T7_data <- GenData2D(T7_chp, T7_mu1, T7_mu2, T7_sigma, T7_sigma)
+T7_data <- GenData2D(T7_n, T7_chp, T7_mu1, T7_mu2, T7_sigma, T7_sigma)
 
 # T5_n = 1000
 T7_resT5_n <- microbenchmark( OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "null",func = "OptPart2D"), OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "pruning",func = "OptPart2D"),  times = 50)
@@ -95,7 +95,7 @@ for(i in T8_vect_n)
   T8_mu2 <- rpois(T8_vect_n[i]/100, 5)
   T8_penalty <- 2 * T8_sigma * log(T8_vect_n[i])
   
-  T8_data <- GenData2D(T8_chp, T8_mu1, T8_mu2, T8_sigma, T8_sigma)
+  T8_data <- GenData2D(T8_vect_n[i], T8_chp, T8_mu1, T8_mu2, T8_sigma, T8_sigma)
   
   T8_resOptPart[j,] <- c(i, replicate(T8_nRep, OneStep(T8_data[1,], T8_data[2,], T8_penalty, type = "null",func = "OptPart2D")))
   T8_resPELT[j,] <- c(i, replicate(T8_nRep, OneStep(T8_data[1,], T8_data[2,], T8_penalty, type = "pruning",func = "OptPart2D")))
