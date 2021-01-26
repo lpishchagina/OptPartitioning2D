@@ -152,11 +152,11 @@ void OP2D::backtracking(unsigned int n)
   unsigned int ChangepointTemp = n;
   double mean1tT;
   double mean2tT;
-  while (ChangepointTemp > 1)
+  while (ChangepointTemp > (-1))
   {
     changepoints.push_back(ChangepointTemp);
-    mean1tT = (vectK[ChangepointTemp][0] - vectK[lastChangepoints[ChangepointTemp] - 1][0]) / (ChangepointTemp - lastChangepoints[ChangepointTemp] + 1);
-    mean2tT = (vectK[ChangepointTemp][1] - vectK[lastChangepoints[ChangepointTemp] - 1][1]) / (ChangepointTemp - lastChangepoints[ChangepointTemp] + 1);
+    mean1tT = (vectK[ChangepointTemp][0] - vectK[lastChangepoints[ChangepointTemp]][0]) / (ChangepointTemp - lastChangepoints[ChangepointTemp] + 1);
+    mean2tT = (vectK[ChangepointTemp][1] - vectK[lastChangepoints[ChangepointTemp]][1]) / (ChangepointTemp - lastChangepoints[ChangepointTemp] + 1);
     means1.push_back(mean1tT);
     means2.push_back(mean2tT);
     ChangepointTemp = lastChangepoints[ChangepointTemp];
