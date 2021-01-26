@@ -13,6 +13,9 @@ We install the package from Github:
 #devtools::install_github("lpishchagina/OptPartitioning2D")
 library(OptPartitioning2D)
 ```
+
+## The function GenData2D
+
 The `GenData2D` function simulates a bivariate time series with the arguments:
 
 `n`  is a time series length.
@@ -26,6 +29,7 @@ The last element of `changepoints` always equals to the length of time series `D
 The length of this vector is equal to the length of `changepoints`.
 
 `means2` is a vector of means for the second univariate time series.
+
 The length of this vector is equal to the length of `changepoints`.
 
 `noise1` is a variance of the first univariate time series(by default it is equal to `1`).
@@ -37,7 +41,7 @@ The length of this vector is equal to the length of `changepoints`.
 n <- 100
 Data <- GenData2D(n, changepoints = c(20, 40, 60, 80, 100), means1 = c(0, 1, 0, 1, 0), means2 = c(1, 2, 3, 4, 5), noise1 = 1,  noise2 = 1)
 ```
-
+## The function OptPart2D
 
 The `OptPart2D` function returns the result of the segmentation using the parameters:
 
@@ -93,6 +97,7 @@ OptPELT <- OptPart2D(Data[1,], Data[2,], penalty = 2 * log(n) , type="pruning")
   
 `globalCost` is the overall gaussian cost of the segmented data. 
 
+## The function PlotOptPart2D
 
 The function `PlotOptPart2D` plots a graph for each univariate time series of the bivariate series.
 
