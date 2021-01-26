@@ -1,14 +1,8 @@
 <a id="top"></a>
-
-
 #OptPartitioning2D Vignette
 ### Liudmila Pishchagina
 ### January  26, 2021
 
-
-> [Quick Start](#qs)
-
-<a id="qs"></a>
 ## Quick Start
 
 We present a basic use of the main functions of the `OptPartitioning2D` package. 
@@ -23,15 +17,21 @@ The `GenData2D` function simulates a bivariate time series with the arguments:
 
 `n`  is a time series length.
 
-`changepoints` is a changepoint vector that gives the last index of each segment. The last element of `changepoints` always equals to the length of time series `Data`.
+`changepoints` is a changepoint vector that gives the last index of each segment.
 
-`means1` is a vector of means for the first univariate time series. The length of this vector is equal to the length of `changepoints`.
+The last element of `changepoints` always equals to the length of time series `Data`.
 
-`means2` is a vector of means for the second univariate time series. The length of this vector is equal to the length of `changepoints`.
+`means1` is a vector of means for the first univariate time series.
+
+The length of this vector is equal to the length of `changepoints`.
+
+`means2` is a vector of means for the second univariate time series.
+The length of this vector is equal to the length of `changepoints`.
 
 `noise1` is a variance of the first univariate time series(by default it is equal to `1`).
 
 `noise2` is a variance of the second univariate time series(by default it is equal to `1`).
+
 
 ```r
 n <- 100
@@ -45,9 +45,13 @@ The `OptPart2D` function returns the result of the segmentation using the parame
 
 `data2` is the second univariate time series.
 
-`penalty` is a value of penalty (a non-negative real number). The `penalty` here equals to a classic `2*(noise^2)*log(n)`. 
+`penalty` is a value of penalty (a non-negative real number).
 
-`type` is a parameter defining the algorithm of segmentation. The `type` must be either `"null"` or `"pruning"`.
+The `penalty` here equals to a classic `2*(noise^2)*log(n)`. 
+
+`type` is a parameter defining the algorithm of segmentation.
+
+The `type` must be either `"null"` or `"pruning"`.
  
 We use Optimal Partitioning algorithm when `type = "null"` and  PELT-algorithm when `type = "pruning"`.
 
