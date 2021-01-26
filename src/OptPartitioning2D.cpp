@@ -35,7 +35,7 @@ using namespace std;
 List OptPart2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type) {
   if(data1.size() != data2.size()){throw std::range_error("data1 and data2 have different length");}
   
-  if(penalty <= 0) {throw std::range_error("Penalty should be a positive number");}
+  if(penalty < 0) {throw std::range_error("Penalty should be a non-negative number");}
   
   if(type != "null" && type != "pruning")
   {throw std::range_error("type must be one of: null or pruning");}

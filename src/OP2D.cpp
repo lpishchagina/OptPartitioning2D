@@ -89,7 +89,7 @@ void OP2D::algoOptPart(std::vector< double >& data1,std::vector< double >& data2
     TempQ = INFINITY;
     for (unsigned int t = 0; t < T; t++)
     {
-      TempCost = Q[t] + Cost.Cost_tT(t, T, vectK[t-1], vectK[T]) + penalty;
+      TempCost = Q[t] + Cost.Cost_tT(t, T, vectK[t], vectK[T]) + penalty;// vectK[t-1] => vectK[t]
       if (TempQ > TempCost)
       {
         TempQ = TempCost;
@@ -120,7 +120,7 @@ void OP2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
     itSetR = SetR.begin();
     while( itSetR != SetR.end() )
     {
-      TempCost = Q[*itSetR] + Cost.Cost_tT(*itSetR, T, vectK[*itSetR-1], vectK[T]) + penalty;
+      TempCost = Q[*itSetR] + Cost.Cost_tT(*itSetR, T, vectK[*itSetR], vectK[T]) + penalty; //vectK[*itSetR-1] =>vectK[*itSetR]
       if (TempQ > TempCost)
       {
         TempQ = TempCost;
@@ -134,7 +134,7 @@ void OP2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
     itSetR = SetR.begin();
     while( itSetR != SetR.end() )
     {
-      if( Q[*itSetR] + Cost.Cost_tT(*itSetR, T, vectK[*itSetR], vectK[T]) > Q[T]  )
+      if( Q[*itSetR] + Cost.Cost_tT(*itSetR+1, T, vectK[*itSetR+1], vectK[T]) > Q[T]  ) // vectK[*itSetR]=> vectK[*itSetR+1],*itSetR=> *itSetR+1
       {
         SetR.assign(1,T);
       }
