@@ -16,7 +16,7 @@ public:
   OP2D(std::vector< double >& data1, std::vector< double >& data2, double beta);
   ~OP2D();
   
-  std::vector< unsigned int > getChangepoints() const;
+  std::vector< int > getChangepoints() const;
   std::vector< double > getMeans1() const;
   std::vector< double > getMeans2() const;
   double getGlobalCost() const;
@@ -26,7 +26,7 @@ public:
   
   void algoOptPart(std::vector< double >& data1,std::vector< double >& data2);
   void algoPELT(std::vector< double >& data1, std::vector< double >& data2);
-  void backtracking(unsigned int n);
+  void backtracking(int n);
   
 private:
   double penalty;
@@ -36,9 +36,9 @@ private:
   //double* vectData1;
  // double* vectData2;
   
-  unsigned int* lastChangepoints;
+  int* lastChangepoints;
   double* Q;
-  std::vector< unsigned int > changepoints; 
+  std::vector< int > changepoints; 
   std::vector< double > means1; 
   std::vector< double > means2;
   double globalCost;
