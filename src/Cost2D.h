@@ -7,7 +7,7 @@ class Cost2D
 {
 public:
   Cost2D();
-  double Cost_tT(unsigned int& t, unsigned int& T, double* kt_1, double* kT);
+  double Cost_ab(int& a, int& b, double* ka_1, double* kb);
 };
 
 #endif // COST2D_H

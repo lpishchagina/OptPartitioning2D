@@ -1,3 +1,4 @@
-useDynLib(OptPartitioning2D, .registration=TRUE)
+useDynLib(OptPartitioning2D, .registration = TRUE)
+export(OptPart2D)
 importFrom(Rcpp, evalCpp)
-exportPattern("^[[:alpha:]]+")
+

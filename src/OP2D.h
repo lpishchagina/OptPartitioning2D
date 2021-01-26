@@ -20,7 +20,7 @@ public:
   std::vector< double > getMeans1() const;
   std::vector< double > getMeans2() const;
   double getGlobalCost() const;
-  unsigned int getN() const;
+  int getN() const;
   
   double** vectSum(std::vector< double >& data1, std::vector< double >& data2) const;
   
@@ -33,9 +33,6 @@ private:
   unsigned int ndata;
   
   double** vectK;
-  //double* vectData1;
- // double* vectData2;
-  
   int* lastChangepoints;
   double* Q;
   std::vector< int > changepoints; 

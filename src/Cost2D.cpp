@@ -4,8 +4,8 @@
 
 Cost2D::Cost2D(){}
 
-double Cost2D::Cost_tT(unsigned int& t, unsigned int& T,  double* kt_1, double* kT)
+double Cost2D::Cost_ab(int& a, int& b,  double* ka_1, double* kb)
 {
-  double res = (-1)*((kT[0]-kt_1[0])*(kT[0]-kt_1[0]) + (kT[1]-kt_1[1])*(kT[1]-kt_1[1]))/(T - t + 1) + (kT[2] - kt_1[2]);
+  double res = (-1)*((kb[0]-ka_1[0])*(kb[0]-ka_1[0]) + (kb[1]-ka_1[1])*(kb[1]-ka_1[1]))/(b - a + 1) + (kb[2] - ka_1[2]);
   return (res);
 }

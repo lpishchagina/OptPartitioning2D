@@ -1,15 +1,11 @@
-#include<Rcpp.h>
-// Enable C++11 via this plugin (Rcpp 0.10.3 or later)
-// [[Rcpp::plugins(cpp11)]]
-
 #include<math.h>
 #include "Cost2D.h"
 #include "OP2D.h"
 
+
 #include <Rcpp.h>
 using namespace Rcpp;
 using namespace std;
-
 
 //' @title OptPart2D 
 //'                                                                                                        
@@ -47,10 +43,12 @@ List OptPart2D(std::vector<double> data1, std::vector<double> data2, double pena
   
   Y.backtracking(Y.getN());
   
-  List res = List::create( _["changepoints"] = Y.getChangepoints(),
-                           _["means1"] = Y.getMeans1(),
-                           _["means2"] = Y.getMeans2(),
-                           _["globalCost"] = Y.getGlobalCost() ) ;
+  List res;
+  res["changepoints"] = Y.getChangepoints();
+  res["means1"] = Y.getMeans1();
+  res["means2"] = Y.getMeans2();
+  res["globalCost"] = Y.getGlobalCost();
   
-  return res ;
+  
+  return res;
 }
