@@ -33,8 +33,8 @@ private:
   unsigned int ndata;
   
   double** vectK;
-  double* vectData1;
-  double* vectData2;
+  //double* vectData1;
+ // double* vectData2;
   
   unsigned int* lastChangepoints;
   double* Q;

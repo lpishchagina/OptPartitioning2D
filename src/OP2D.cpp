@@ -10,14 +10,14 @@ OP2D::OP2D(std::vector< double >& data1, std::vector< double >& data2,double bet
   penalty = beta;
   ndata = data1.size();
   
-  vectData1 = new double[ndata];
+  /*vectData1 = new double[ndata];
   vectData2 = new double[ndata];
   for(unsigned int i = 0; i < ndata; i++)
   {
     vectData1[i] = data1[i];
     vectData2[i] = data2[i];
   }
-  
+  */
   vectK = new double*[ndata+1]; 
   for(unsigned int i = 0; i < ndata+1; i++)
   {
@@ -35,12 +35,12 @@ OP2D::OP2D(std::vector< double >& data1, std::vector< double >& data2,double bet
 //destructor-------------------------------------------------------------------//
 OP2D::~OP2D()
 {
-  delete []vectData1;
+ /* delete []vectData1;
   vectData1 = NULL;
   
   delete []vectData2;
   vectData2 = NULL;
-  
+  */
   delete []lastChangepoints;
   lastChangepoints = NULL;
   
