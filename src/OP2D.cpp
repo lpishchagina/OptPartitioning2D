@@ -84,12 +84,12 @@ void OP2D::algoOptPart(std::vector< double >& data1,std::vector< double >& data2
   vectK = vectSum(data1,data2);
   
   //Optimal Partitioning
-  for (unsigned int T = 2; T < (n + 1); T++)
+  for (unsigned int T = 2; T < n+1 ; T++)
   {
     TempQ = INFINITY;
     for (unsigned int t = 0; t < T; t++)
     {
-      TempCost = Q[t] + Cost.Cost_tT(t, T, vectK[t], vectK[T]) + penalty;// vectK[t-1] => vectK[t]
+      TempCost = Q[t] + Cost.Cost_tT(t+1, T, vectK[t], vectK[T]) + penalty;// vectK[t-1] => vectK[t]
       if (TempQ > TempCost)
       {
         TempQ = TempCost;
@@ -113,14 +113,14 @@ void OP2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
   std::list< unsigned int > ::iterator itSetR; 
   vectK = vectSum(data1, data2); /// vectors Sum y1,y2,y1^2+y2^2
   //PELT//
-  for (unsigned int T = 2; T < (n + 1); T++)
+  for (unsigned int T = 2; T < n+1; T++)
   {
     TempQ = INFINITY;
     ChangePointTemp = 0;
     itSetR = SetR.begin();
     while( itSetR != SetR.end() )
     {
-      TempCost = Q[*itSetR] + Cost.Cost_tT(*itSetR, T, vectK[*itSetR], vectK[T]) + penalty; //vectK[*itSetR-1] =>vectK[*itSetR]
+      TempCost = Q[*itSetR] + Cost.Cost_tT(*itSetR+1, T, vectK[*itSetR], vectK[T]) + penalty; //vectK[*itSetR-1] =>vectK[*itSetR]
       if (TempQ > TempCost)
       {
         TempQ = TempCost;
