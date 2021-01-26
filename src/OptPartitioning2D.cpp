@@ -11,7 +11,7 @@ using namespace Rcpp;
 using namespace std;
 
 
-//' @title OptPatr2D 
+//' @title OptPart2D 
 //'                                                                                                        
 //' @description Optimal Partitioning and PELT algorithms for changepoints dimension 2                           
 //'                                                                                                       
@@ -28,8 +28,8 @@ using namespace std;
 //' @param globalCost value of global cost.       
 //'             
 //' @exemples 
-//' OptPatr2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "null")                                                                                      
-//' OptPatr2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "pruning")
+//' OptPart2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "null")                                                                                      
+//' OptPart2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "pruning")
 
 // [[Rcpp::export]]
 List OptPart2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type) {

@@ -1,7 +1,7 @@
 {
     "id": "957BFDB0",
     "path": "E:/LaMME STAGE/OptPartitioning2D/R/OptPartitioning.R",
-    "project_path": "R/OptPartitioning.R",
+    "project_path": null,
     "type": "r_source",
     "hash": "3567179670",
     "contents": "",
@@ -14,7 +14,7 @@
         "source_window_id": "",
         "Source": "Source",
         "cursorPosition": "44,0",
-        "scrollLine": "34"
+        "scrollLine": "0"
     },
     "folds": "",
     "lastKnownWriteTime": 1611585430,

@@ -1,6 +1,6 @@
 {
     "id": "32391840",
-    "path": "E:/LaMME STAGE/OptPartitioning2D/R/RcppExports.R",
+    "path": "~/GitHub/OptPartitioning2D/R/RcppExports.R",
     "project_path": "R/RcppExports.R",
     "type": "r_source",
     "hash": "3681525352",
@@ -13,7 +13,7 @@
         "source_window_id": "",
         "Source": "Source",
         "cursorPosition": "22,0",
-        "scrollLine": "18"
+        "scrollLine": "0"
     },
     "folds": "",
     "lastKnownWriteTime": 1611585430,
