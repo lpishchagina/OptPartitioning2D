@@ -20,7 +20,6 @@
 #' @exemples 
 #' OptPart2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "null")                                                                                      
 #' OptPart2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "pruning")
-NULL
 
 OptPart2D <- function(data1, data2, penalty, type) {
     .Call(`_OptPartitioning2D_OptPart2D`, data1, data2, penalty, type)
