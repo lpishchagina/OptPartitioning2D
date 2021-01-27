@@ -1,8 +1,7 @@
 <a id="top"></a>
-### OptPartitioning2D Vignette
-
-# Liudmila Pishchagina
-# January  26, 2021
+#  OptPartitioning2D Vignette
+### Liudmila Pishchagina
+### January 27, 2021
 
 ## Quick Start
 
