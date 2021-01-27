@@ -3,6 +3,8 @@
 devtools::install_github("lpishchagina/OptPartitioning2D")
 library(OptPartitioning2D)
 
+set.seed (21)
+
 #Function OneStep  returns the execution time of a given algorithm
 OneStep <- function(data1, data2, penalty, type, func = "OptPart2D")
 {
@@ -12,7 +14,10 @@ OneStep <- function(data1, data2, penalty, type, func = "OptPart2D")
 }
 
 #Test5: One time complexity test
-T5_n <- 1000
+library(microbenchmark)
+library("ggplot2")
+
+T5_n <- 10000
 T5_chp <- seq(from = 100, to = T5_n, by = 100)
 T5_chp
 T5_mu1 <- rpois(T5_n/100, 10)
@@ -27,8 +32,11 @@ T5_data <- GenData2D(T5_n, T5_chp, T5_mu1, T5_mu2, T5_sigma, T5_sigma)
 T5_timeOptPart <- OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "null",func = "OptPart2D")
 T5_timePELT <- OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "pruning",func = "OptPart2D")
 T5_timeOptPart
+#1.27
 T5_timePELT
+#[1] 0.03
 T5_timeOptPart/T5_timePELT
+#[1] 42.33333
 
 ##Test6: Iterations ( T5_data )
 
@@ -40,12 +48,13 @@ for(i in 1:T6_nStep){T6_timeOptPart <- T6_timeOptPart + OneStep(T5_data[1,], T5_
 for(i in 1:T6_nStep){T6_timePELT <- T6_timePELT + OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "pruning",func = "OptPart2D")}
 
 T6_timeOptPart/T6_timePELT
+#[1] [1] 36.14706
 
 ##Test7: microbenchmark ( T5_data, T7_data )
 library(microbenchmark)
 library("ggplot2")
 
-T7_n <- 10000
+T7_n <- 3000
 T7_chp <- seq(from = 100, to = T7_n, by = 100)
 T7_chp
 T7_mu1 <- rpois(T7_n/100, 10)
@@ -57,15 +66,20 @@ T7_penalty <- 2 * T7_sigma * log(T7_n)
 
 T7_data <- GenData2D(T7_n, T7_chp, T7_mu1, T7_mu2, T7_sigma, T7_sigma)
 
-# T5_n = 1000
-T7_resT5_n <- microbenchmark( OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "null",func = "OptPart2D"), OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "pruning",func = "OptPart2D"),  times = 50)
-autoplot(T7_resT5_n)
-T7_resT5_n
+# T5_n = 10000
+#T7_resT5_n <- microbenchmark( OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "null",func = "OptPart2D"), OneStep(T5_data[1,], T5_data[2,], T5_penalty, type = "pruning",func = "OptPart2D"),  times = 50)
+#T7_resT5_n
+#autoplot(T7_resT5_n)
 
-# T7_n = 10000
+
+# T7_n = 3000
 T7_resT7_n <- microbenchmark( OneStep(T7_data[1,], T7_data[2,], T7_penalty, type = "null",func = "OptPart2D"), OneStep(T7_data[1,], T7_data[2,], T7_penalty, type = "pruning",func = "OptPart2D"),  times = 50)
-autoplot(T7_resT7_n)
 T7_resT7_n
+#    min       lq      mean    median       uq      max neval
+#98.9273 100.6285 116.92070 107.80035 126.7071 176.2343    50
+#59.0142  60.8402  68.30388  62.90985  71.0535 130.5937    50
+autoplot(T7_resT7_n)
+
 #estimate the difference  in running time
 
 ##Test8: Time complexity (the plot of the mean running time with respect to data length).
@@ -74,9 +88,9 @@ T7_resT7_n
 #
 
 T8_nStep <- 10 #20 
-T8_vect_n <- seq(from = 10000, to = 100000, length.out = T8_nStep)
-# T8_vect_n 
-#[1] 1e+04 2e+04 3e+04 4e+04 5e+04 6e+04 7e+04 8e+04 9e+04 1e+05
+T8_vect_n <- seq(from = 1000, to = 10000, length.out = T8_nStep)
+T8_vect_n 
+#[1]  1000  2000  3000  4000  5000  6000  7000  8000  9000 10000
 T8_nRep <- 10 #50
 
 T8_resOptPart <- data.frame(matrix(0, T8_nStep, T8_nRep + 1))
@@ -88,7 +102,7 @@ colnames(T8_resPELT) <- c("n", paste0("Rep",1:T8_nRep))
 j <- 1
 T8_sigma <- 1
 
-for(i in T8_vect_n)
+for(i in length(T8_vect_n))
 {
   T8_chp <- seq(from = 100, to = T8_vect_n[i], by = 100)
   T8_mu1 <- rpois(T8_vect_n[i]/100, 10)
