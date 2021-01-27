@@ -24,8 +24,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_OptPartitioning2D_OptPart2D", (DL_FUNC) &_OptPartitioning2D_OptPart2D, 4},
     {NULL, NULL, 0}
 };
-
+/*
 RcppExport void R_init_OptPartitioning2D(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }
+*/

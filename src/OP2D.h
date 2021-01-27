@@ -20,7 +20,7 @@ public:
   std::vector< double > getMeans1() const;
   std::vector< double > getMeans2() const;
   double getGlobalCost() const;
-  int getN() const;
+  unsigned int getN() const;
   
   double** vectSum(std::vector< double >& data1, std::vector< double >& data2) const;
   
