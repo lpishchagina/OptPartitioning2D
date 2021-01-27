@@ -1,9 +1,13 @@
 <a id="top"></a>
 #OptPartitioning2D Vignette
-### Liudmila Pishchagina
-### January  26, 2021
+#Liudmila Pishchagina
+# January  26, 2021
 
 ## Quick Start
+
+`OptPartitioning2D` is an R package written in Rcpp/C++ and developed to change-point detection in 2 bivariate time-series.
+
+The package implements two algorithms: Optimal Partitioning and PELT-algorithm. 
 
 We present a basic use of the main functions of the `OptPartitioning2D` package. 
 
