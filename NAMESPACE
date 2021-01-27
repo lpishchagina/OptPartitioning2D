@@ -1,4 +1,6 @@
 useDynLib(OptPartitioning2D, .registration=TRUE)
 importFrom(Rcpp, evalCpp)
+importFrom("graphics", "abline", "lines", "par")
+importFrom("stats", "rnorm")
 exportPattern("^[[:alpha:]]+")
 

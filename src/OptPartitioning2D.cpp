@@ -11,23 +11,23 @@ using namespace std;
 //'                                                                                                        
 //' @description Optimal Partitioning and PELT algorithms for changepoints dimension 2                           
 //'                                                                                                       
-//' @param data1 vector of data1 to segment (a univariate time series).                                
-//' @param data2 vector of data2 to segment (a univariate time series).                                
-//' @param penalty value of penalty (a non-negative real number).                                        
-//' @param type string defining the  algorithm ("null" = Optimal Partitioning, "pruning" = PELT).       
+//' @param data1 is a vector of data1(a univariate time series).                                
+//' @param data2 is a vector of data2(a univariate time series).                                
+//' @param penalty is a value of penalty (a non-negative real number).                                        
+//' @param type is a string defining the  algorithm ("null" = Optimal Partitioning, "pruning" = PELT).       
 //'                                                                                                          
 //' @return a list of 4 elements  = (changepoints, means1, means2, GlobalCost).                    
-//'                                                                                                                                                                               #
-//' @param changepoints vector of changepoints.                                                                   
-//' @param means1 vector of successive means for data1.                                                           
-//' @param means2 vector of successive means for data2.
-//' @param globalCost value of global cost.       
+//'  
+//' \describe{
+//' \item{\code{changepoints}}{is the vector of changepoints.}
+//' \item{\code{means1}}{is the vector of successive means for data1.}
+//' \item{\code{means2}}{is the vector of successive means for data2.}
+//' \item{\code{globalCost}}{is a number equal to the global cost.}
+//' }                                                                                                                                                                             #     
 //'             
-//' @exemples 
-//' data <- GenData2D (10, changepoints = c(2, 4, 6,8, 10), means1 = c(0, 1, 0, 1, 0), means2 = c(1, 2, 3, 4, 5), noise1 = 1, noise2 = 1)
-//' resOptPart <- OptPart2D(data[1,], data[2,], penalty = 2*log(10),  type = "null")
-//' resPELT <- OptPart2D(data[1,], data[2,], penalty = 2*log(10),  type = "pruning")
-
+//' @examples OptPart2D(data1 = c(0,0,0,1,1,1), data2 = c(2,2,2,0,0,0), penalty = 2*log(6),  type = "null") 
+  
+  
 // [[Rcpp::export]]
 List OptPart2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type) {
   if(data1.size() != data2.size()){throw std::range_error("data1 and data2 have different length");}
