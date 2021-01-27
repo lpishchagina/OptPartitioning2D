@@ -24,8 +24,9 @@ using namespace std;
 //' @param globalCost value of global cost.       
 //'             
 //' @exemples 
-//' OptPart2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "null")                                                                                      
-//' OptPart2D(data1 = c(0,1,0,8,5), data2 = c(0,1,0,1,1), penalty = 2,  type = "pruning")
+//' data <- GenData2D (10, changepoints = c(2, 4, 6,8, 10), means1 = c(0, 1, 0, 1, 0), means2 = c(1, 2, 3, 4, 5), noise1 = 1, noise2 = 1)
+//' resOptPart <- OptPart2D(data[1,], data[2,], penalty = 2*log(10),  type = "null")
+//' resPELT <- OptPart2D(data[1,], data[2,], penalty = 2*log(10),  type = "pruning")
 
 // [[Rcpp::export]]
 List OptPart2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type) {
@@ -38,10 +39,10 @@ List OptPart2D(std::vector<double> data1, std::vector<double> data2, double pena
   
   OP2D Y = OP2D(data1,data2, penalty);
   
-  if(type == "null") {Y.algoOptPart(data1, data2);}
-  if(type == "pruning") {Y.algoPELT(data1, data2);}
+  if(type == "null") {Y.algoOptPart(data1, data2);}   //Optimal Partitioning algorithm
+  if(type == "pruning") {Y.algoPELT(data1, data2);}   //PELT algorithm
   
-  Y.backtracking(Y.getN());
+  Y.backtracking(Y.getN());                           //algorithm results 
   
   List res;
   res["changepoints"] = Y.getChangepoints();

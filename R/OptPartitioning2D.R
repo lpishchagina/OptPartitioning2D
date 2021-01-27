@@ -12,7 +12,8 @@
 #' @return matrix of data of dimension 2 x n with a given values of means by the segmentation.
 #'  
 #' @exemples
-#' GenData2D <- function (n, changepoints, means1, means2, noise1 = 1, noise2 = 1)
+#' GenData2D <- function (10, changepoints = c(2, 4, 6, 8, 10), means1 = c (0, 1, 0, 1, 0), means2 = (1, 2, 3, 4, 5), noise1 = 1, noise2 = 1)
+
 GenData2D <- function(n, changepoints, means1, means2, noise1 = 1, noise2 = 1)
 {
   #---stop---#
@@ -54,8 +55,10 @@ GenData2D <- function(n, changepoints, means1, means2, noise1 = 1, noise2 = 1)
 #' @return 2 plot of data with a given values of means and changepoints.
 #'  
 #' @exemples 
-#' data <- GenData2D (20, changepoints = c(1,5,15,20), means1 = c(0,10,0,10), means2 = c(1,2,3,4), noise1 = 1, noise2 = 1)
-#' PlotOptPart2D (data, changepoints = c(1,5,15,20), means1 = c(0,10,0,10), means2 = c(1,2,3,4))
+#' data <- GenData2D (10, changepoints = c(2, 4, 6,8, 10), means1 = c(0, 1, 0, 1, 0), means2 = c(1, 2, 3, 4, 5), noise1 = 1, noise2 = 1)
+#' res <- OptPart2D(data[1,], data[2,], penalty = 2*log(10),  type = "null") 
+#' PlotOptPart2D (data, changepoints = res$changepoints, means1 = res$means1, means2 = res$means1)
+
 PlotOptPart2D <- function (data, changepoints, means1, means2)
 {
   #---stop---#

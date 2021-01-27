@@ -43,7 +43,8 @@ std::vector< double > OP2D::getMeans1() const { return(means1); }
 std::vector< double > OP2D::getMeans2() const { return(means2); }
 double OP2D::getGlobalCost() const { return(globalCost); }
 unsigned int OP2D::getN() const  { return(ndata); }
-//vectSum----------------------------------------------------------------------//
+
+//vectK is vector of Sum(y1t_y1T), Sum(y2t_y2T), Sum(y1t^2+y2t^2_y1T^2+y2T^2)--//
 double** OP2D::vectSum(std::vector< double >& data1, std::vector< double >& data2) const
 {
   unsigned int n = data1.size();
@@ -58,7 +59,7 @@ double** OP2D::vectSum(std::vector< double >& data1, std::vector< double >& data
   }
   return(vectK);
 }
-//OptPart----------------------------------------------------------------------//
+//Optimal Partitioning algorithm-----------------------------------------------//
 void OP2D::algoOptPart(std::vector< double >& data1,std::vector< double >& data2)
 {
   unsigned int n = data1.size();
@@ -70,7 +71,7 @@ void OP2D::algoOptPart(std::vector< double >& data1,std::vector< double >& data2
   
   vectK = vectSum(data1,data2);
   
-  //Optimal Partitioning
+  //Optimal Partitioning//
   for ( unsigned int T = 2; T < n + 1 ; T++)
   {
     TempQ = INFINITY;
@@ -88,10 +89,10 @@ void OP2D::algoOptPart(std::vector< double >& data1,std::vector< double >& data2
     lastChangepoints[T] = ChangePointTemp; //best last changepoint for (Y0,YT)
   }  
 }
-//PELT-------------------------------------------------------------------------//
+
+//PELT algorithm---------------------------------------------------------------//
 void OP2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
 {
-  
   unsigned int n = data1.size();
   Cost2D Cost;
   double TempCost = 0;
@@ -100,7 +101,7 @@ void OP2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
   int ChangePointTemp = -1;
   std::list<  unsigned int > SetR ={0};// Set of candidates for the best changepoint for (Y0,YT)
   std::list< unsigned int > ::iterator itSetR; 
-  vectK = vectSum(data1, data2); /// vectors Sum y1,y2,y1^2+y2^2
+  vectK = vectSum(data1, data2);
   //PELT//
   for ( unsigned int T = 2; T < n + 1; T++)
   {
@@ -127,14 +128,14 @@ void OP2D::algoPELT(std::vector< double >& data1,std::vector< double >& data2)
       a = *itSetR+1;
       if( Q[*itSetR] + Cost.Cost_ab(a, T, vectK[*itSetR], vectK[T]) > Q[T]  ) 
       {
-        SetR.assign(1,T);
+        itSetR = SetR.erase(itSetR);
       }
-      ++itSetR;
+      else {++itSetR;}
     }
     SetR.push_back(T);
-    SetR.unique();
   }
 }
+
 //backtracking-----------------------------------------------------------------//
 //a vector of change points and a vector of mean values
 void OP2D::backtracking(int n)
@@ -143,13 +144,16 @@ void OP2D::backtracking(int n)
   int ChangepointTemp = n;
   double mean1tT;
   double mean2tT;
-  while (ChangepointTemp > (-1))
+  while (ChangepointTemp > 0)
   {
     changepoints.push_back(ChangepointTemp);
-    mean1tT = (vectK[ChangepointTemp][0] - vectK[lastChangepoints[ChangepointTemp]- 1][0]) / (ChangepointTemp - lastChangepoints[ChangepointTemp] + 1);
-    mean2tT = (vectK[ChangepointTemp][1] - vectK[lastChangepoints[ChangepointTemp]- 1][1]) / (ChangepointTemp - lastChangepoints[ChangepointTemp] + 1);
+    mean1tT = (vectK[ChangepointTemp][0] - vectK[lastChangepoints[ChangepointTemp]][0]) / (ChangepointTemp - lastChangepoints[ChangepointTemp]);
+    mean2tT = (vectK[ChangepointTemp][1] - vectK[lastChangepoints[ChangepointTemp]][1]) / (ChangepointTemp - lastChangepoints[ChangepointTemp]);
     means1.push_back(mean1tT);
     means2.push_back(mean2tT);
     ChangepointTemp = lastChangepoints[ChangepointTemp];
   }
+  reverse(changepoints.begin(), changepoints.end());
+  reverse(means1.begin(), means1.end());
+  reverse(means2.begin(), means2.end());
 }

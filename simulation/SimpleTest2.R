@@ -3,7 +3,10 @@
 devtools::install_github("lpishchagina/OptPartitioning2D")
 library(OptPartitioning2D)
 
-#Test1: Values of mean is constant over the interval (0,T1_n).
+#Test1: Values of mean is constant over the interval (0,T1_n) and sigma = 0.
+
+#0000000000
+#1111111111
 T1_n <- 10
 T1_chp <- T1n
 T1_mu1 <- 0
@@ -19,7 +22,10 @@ PlotOptPart2D(T1_data, T1_OptPart$changements,T1_OptPart$means1, T1_OptPart$mean
 T1_PELT <- OptPart2D(T1_data[1,],T1_data[2,], T1_penalty, type="pruning")
 PlotOptPart2D(T1_data, T1_PELT$changements,T1_PELT$means1, T1_PELT$means2)
 
-#Test2: Data has 2 segments with values of means.
+#Test2: Data has 2 segments with values of different means(sigma = 0).
+
+#0000011111
+#1111100000
 T2_n <- 10
 T2_chp <- c(T2_n/2, T2_n)
 T2_mu1 <- c(0, 1)
@@ -40,16 +46,39 @@ T2b_mu2 <- c(0, 1)
 T2_sigma <- 0
 T2_penalty <- 2 * T2_sigma * log(T2_n)
 
+T2_l_penalty <- 0.3 # =>n segments
+T2_b_penalty <- 10 # =>1 segment
+
+#0000011111
+#0000011111
 T2b_data<-GenData2D(T2_n, T2_chp, T2b_mu1,T2b_mu2,T2_sigma,T2_sigma)
 
 T2b_OptPart<-OptPart2D(T2b_data[1,], T2b_data[2,],T2_penalty, type="null")
 PlotOptPart2D(T2b_data, T2b_OptPart$changepoints,T2b_OptPart$means1, T2b_OptPart$means2)
 
-T2_PELT <- OptPart2D(T2_data[1,], T2_data[2,], T2_penalty, type="pruning")
-PlotOptPart2D(T2_data, T2_PELT$changepoints,T2_PELT$means1, T2_PELT$means2)
+T2b_PELT <- OptPart2D(T2b_data[1,], T2b_data[2,], T2_penalty, type="pruning")
+PlotOptPart2D(T2b_data, T2_PELT$changepoints,T2_PELT$means1, T2_PELT$means2)
+
+#0000011111
+#0000011111
+#penalty = 0.3  => n segments
+T2_l_pen_OptPart<-OptPart2D(T2b_data[1,], T2b_data[2,],T2_l_penalty, type="null")
+PlotOptPart2D(T2b_data, T2b_OptPart$changepoints,T2b_OptPart$means1, T2b_OptPart$means2)
+
+T2_l_pen_PELT <- OptPart2D(T2b_data[1,], T2b_data[2,], T2_l_penalty, type="pruning")
+PlotOptPart2D(T2b_data, T2_PELT$changepoints,T2_PELT$means1, T2_PELT$means2)
+
+#0000011111
+#0000011111
+#penalty = 10  => 1 segment
+T2_b_pen_OptPart<-OptPart2D(T2b_data[1,], T2b_data[2,],T2_b_penalty, type="null")
+PlotOptPart2D(T2b_data, T2b_OptPart$changepoints,T2b_OptPart$means1, T2b_OptPart$means2)
+
+T2_b_pen_PELT <- OptPart2D(T2_data[1,], T2b_data[2,], T2_b_penalty, type="pruning")
+PlotOptPart2D(T2b_data, T2_PELT$changepoints,T2_PELT$means1, T2_PELT$means2)
 
 
-#Test3:The data has multiple segments.
+#Test3:The data has multiple segments (sigma = 1).
 T3_n <- 500
 T3_chp <- seq(from=100, to=T3_n,by=100)
 T3_mu1 <- c(1:5)
@@ -65,7 +94,7 @@ PlotOptPart2D(T3_data, T3_OptPart$changepoints,T3_OptPart$means1, T3_OptPart$mea
 T3_PELT <- OptPart2D(T3_data[1,], T3_data[2,], T3_penalty, type="pruning")
 PlotOptPart2D(T3_data, T3_PELT$changepoints,T3_PELT$means1, T3_PELT$means2)
 
-#Test4: Data1 and data2 have different number of segments.
+#Test4: Data1 and data2 have different number of segments (sigma = 1).
 T4_n <- 500
 T4_chp <- seq(from = 100, to = T4_n, by = 100)
 T4_mu1 <- c(1:5)
