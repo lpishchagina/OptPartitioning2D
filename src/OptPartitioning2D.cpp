@@ -26,8 +26,6 @@ using namespace std;
 //' }                                                                                                                                                                             #     
 //'             
 //' @examples OptPart2D(data1 = c(0,0,0,1,1,1), data2 = c(2,2,2,0,0,0), penalty = 2*log(6),  type = "null") 
-  
-  
 // [[Rcpp::export]]
 List OptPart2D(std::vector<double> data1, std::vector<double> data2, double penalty, std::string type) {
   if(data1.size() != data2.size()){throw std::range_error("data1 and data2 have different length");}
