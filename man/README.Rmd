@@ -73,24 +73,29 @@ OptPELT <- OptPart2D(Data[1,], Data[2,], penalty = 2 * log(n) , type="pruning")
 
 ```
 ## OptPart$changepoints
-## 
+## [1]  19  34  60  80 100
+##
 ## OptPart$means1
-## 
+## [1] -0.1017971  1.6048117  0.1004500  1.2940562  0.1666548
+##
 ## OptPart$means2
-##
+## [1] 1.416380 1.581436 2.816486 3.890411 4.845932
 ## OptPart$globalCost
-##
+## [1] 210.8269
 ```
 
 ```
 ## OptPELT$changepoints
-## 
+## [1]  19  34  60  80 100
+##
 ## OptPELT$means1
-## 
+## [1] -0.1017971  1.6048117  0.1004500  1.2940562  0.1666548
+##
 ## OptPELT$means2
+## [1] 1.416380 1.581436 2.816486 3.890411 4.845932
 ##
 ## OptPELT$globalCost
-##
+## [1] 210.8269
 ```
 
 `changepoints` is a  vector of the inferred changepoints.
@@ -120,4 +125,6 @@ The function `PlotOptPart2D` uses the parameters:
 ```r
 PlotOptPart2D(data = Data, changepoints = c(20, 40, 60, 80, 100), means1 = c(0, 1, 0, 1, 0), means2 = c(1, 2, 3, 4, 5))
 ```
+![ ](simulation/PlotOptPart2Dexample.png)
+
 [Back to Top](#top)
