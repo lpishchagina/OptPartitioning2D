@@ -13,7 +13,7 @@ OP2D::OP2D(std::vector< double >& data1, std::vector< double >& data2,double bet
   vectK = new double*[ndata+1]; 
   for(unsigned int i = 0; i < ndata+1; i++)
   {
-    vectK[i] = new double[ndata + 1];
+    vectK[i] = new double[3];
   }
   
   Q = new double [ndata+1];
